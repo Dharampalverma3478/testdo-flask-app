@@ -1,45 +1,1008 @@
 {
-  "Math": {
-    "Basic Math": {
-      "Algebra": [
-        {
-          "question": "What is 2 + 2?",
-          "options": ["3", "4", "5", "6"],
-          "answer": "4"
-        },
-        {
-          "question": "What is the value of x if x + 3 = 5?",
-          "options": ["1", "2", "3", "4"],
-          "answer": "2"
+    "Science": {
+        "Physics": {
+            "Motion": [
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest?",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration?",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point?",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1?",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration?",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 6)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 7)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 8)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 9)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 10)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 11)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 12)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 13)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 14)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 15)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 16)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 17)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 18)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 19)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 20)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 21)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 22)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 23)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 24)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 25)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 26)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 27)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 28)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 29)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 30)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 31)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 32)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 33)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 34)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 35)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 36)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 37)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 38)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 39)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 40)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 41)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 42)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 43)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 44)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 45)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 46)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 47)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 48)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 49)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 50)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 51)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 52)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 53)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 54)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 55)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 56)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 57)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 58)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 59)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 60)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 61)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 62)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 63)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 64)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 65)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 66)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 67)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 68)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 69)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 70)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 71)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 72)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 73)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 74)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 75)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 76)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 77)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 78)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 79)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 80)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 81)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 82)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 83)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 84)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 85)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 86)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 87)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 88)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 89)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 90)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 91)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 92)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 93)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 94)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 95)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                },
+                {
+                    "question": "A particle moves along a straight line with position x(t) = t^3 - 6t^2 + 9t. At what time(s) does it momentarily come to rest? (variant 96)",
+                    "options": [
+                        "t = 0, 3",
+                        "t = 1, 2",
+                        "t = 2, 3",
+                        "t = 1, 4"
+                    ],
+                    "answer": "t = 1, 2"
+                },
+                {
+                    "question": "If a body starts from rest and moves with constant acceleration, covering a distance s in time t, what is its acceleration? (variant 97)",
+                    "options": [
+                        "s / t^2",
+                        "2s / t",
+                        "s / 2t",
+                        "2s / t^2"
+                    ],
+                    "answer": "2s / t^2"
+                },
+                {
+                    "question": "A body is thrown vertically upwards. The time taken to reach maximum height is T. What is the time taken to return to the same point? (variant 98)",
+                    "options": [
+                        "T",
+                        "2T",
+                        "T/2",
+                        "4T"
+                    ],
+                    "answer": "2T"
+                },
+                {
+                    "question": "If acceleration a varies with velocity v as a = kv^2, then what is the distance covered when velocity increases from v0 to v1? (variant 99)",
+                    "options": [
+                        "(v1 - v0)/(kv0v1)",
+                        "(v1 - v0)/k",
+                        "(1/k)(1/v0 - 1/v1)",
+                        "(1/k)(1/v1 - 1/v0)"
+                    ],
+                    "answer": "(1/k)(1/v0 - 1/v1)"
+                },
+                {
+                    "question": "An object in SHM has amplitude A and angular frequency \u03c9. What is its maximum acceleration? (variant 100)",
+                    "options": [
+                        "A\u03c9",
+                        "\u03c9^2/A",
+                        "A\u03c9^2",
+                        "A/\u03c9^2"
+                    ],
+                    "answer": "A\u03c9^2"
+                }
+            ]
         }
-      ]
     }
-  },
-  "General Knowledge": {
-    "Rajasthan GK": {
-      "History": [
-        {
-          "question": "Who was the founder of the city of Jaipur?",
-          "options": ["Raja Man Singh", "Maharaja Sawai Jai Singh II", "Rana Pratap", "Bhim Singh"],
-          "answer": "Maharaja Sawai Jai Singh II"
-        }
-      ],
-      "Geography": [
-        {
-          "question": "Which is the largest desert in Rajasthan?",
-          "options": ["Thar", "Sahara", "Kutch", "Cholistan"],
-          "answer": "Thar"
-        }
-      ]
-    },
-    "Indian GK": {
-      "Geography": [
-        {
-          "question": "Which is the longest river in India?",
-          "options": ["Yamuna", "Ganga", "Godavari", "Brahmaputra"],
-          "answer": "Ganga"
-        }
-      ]
-    }
-  }
 }
