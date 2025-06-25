@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Your Quiz History - TESTDO{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-dark text-white text-center fw-bold fs-5">
+                📄 Your Quiz History
+            </div>
+            <div class="card-body">
+                {% if results %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Subject</th>
+                                <th>Score</th>
+                                <th>Total</th>
+                                <th>Date & Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for r in results %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ r.subject }}</td>
+                                <td>{{ r.score }}</td>
+                                <td>{{ r.total }}</td>
+                                <td>{{ r.time }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p class="text-center text-muted">📭 No quiz attempts found yet.</p>
+                {% endif %}
+
+                <div class="text-center mt-4">
+                    <a href="/search" class="btn btn-primary btn-lg">🔍 Take Another Quiz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

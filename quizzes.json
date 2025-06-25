@@ -1,0 +1,45 @@
+{
+  "Math": {
+    "Basic Math": {
+      "Algebra": [
+        {
+          "question": "What is 2 + 2?",
+          "options": ["3", "4", "5", "6"],
+          "answer": "4"
+        },
+        {
+          "question": "What is the value of x if x + 3 = 5?",
+          "options": ["1", "2", "3", "4"],
+          "answer": "2"
+        }
+      ]
+    }
+  },
+  "General Knowledge": {
+    "Rajasthan GK": {
+      "History": [
+        {
+          "question": "Who was the founder of the city of Jaipur?",
+          "options": ["Raja Man Singh", "Maharaja Sawai Jai Singh II", "Rana Pratap", "Bhim Singh"],
+          "answer": "Maharaja Sawai Jai Singh II"
+        }
+      ],
+      "Geography": [
+        {
+          "question": "Which is the largest desert in Rajasthan?",
+          "options": ["Thar", "Sahara", "Kutch", "Cholistan"],
+          "answer": "Thar"
+        }
+      ]
+    },
+    "Indian GK": {
+      "Geography": [
+        {
+          "question": "Which is the longest river in India?",
+          "options": ["Yamuna", "Ganga", "Godavari", "Brahmaputra"],
+          "answer": "Ganga"
+        }
+      ]
+    }
+  }
+}

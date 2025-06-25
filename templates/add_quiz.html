@@ -1,0 +1,39 @@
+<!-- templates/add_quiz.html -->
+{% extends "base.html" %}
+{% block title %}Add Quiz - Admin{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">🛠️ Add Quiz Question</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-control" name="subject" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Part</label>
+            <input type="text" class="form-control" name="part" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Section</label>
+            <input type="text" class="form-control" name="section" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Question</label>
+            <textarea class="form-control" name="question" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Options (4)</label>
+            <input type="text" class="form-control mb-2" name="options" placeholder="Option 1" required>
+            <input type="text" class="form-control mb-2" name="options" placeholder="Option 2" required>
+            <input type="text" class="form-control mb-2" name="options" placeholder="Option 3" required>
+            <input type="text" class="form-control mb-2" name="options" placeholder="Option 4" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Correct Answer</label>
+            <input type="text" class="form-control" name="answer" required>
+        </div>
+        <button type="submit" class="btn btn-success">➕ Add Question</button>
+    </form>
+</div>
+{% endblock %}

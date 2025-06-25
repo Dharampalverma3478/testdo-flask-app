@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Admin Login - TESTDO{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow p-4">
+        <h3 class="text-center mb-3">🔐 Admin Login</h3>
+
+        {% if error %}
+            <div class="alert alert-danger text-center">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="mb-3">
+                <label for="password" class="form-label">Enter Admin Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

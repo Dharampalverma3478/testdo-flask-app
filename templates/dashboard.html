@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - TESTDO{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h2 class="mb-4">👋 Welcome to Your Dashboard</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <a href="/leaderboard" class="btn btn-outline-primary w-100 py-3">
+                🏆 View Leaderboard
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/profile" class="btn btn-info w-100 py-3">
+                👤 My Profile
+            </a>
+        </div>
+        <!-- Optional: Add more dashboard features here -->
+        <!--
+        <div class="col-md-4 mb-3">
+            <a href="/history" class="btn btn-success w-100 py-3">
+                📜 My Quiz History
+            </a>
+        </div>
+        -->
+    </div>
+</div>
+{% endblock %}

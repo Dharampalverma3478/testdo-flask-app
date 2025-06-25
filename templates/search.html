@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Search Quiz - TESTDO{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-info text-white text-center fw-bold fs-5">
+                🔍 Search & Start a Quiz
+            </div>
+            <div class="card-body">
+                <form action="/search_quiz" method="POST">
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">📘 Select Subject</label>
+                        <select class="form-select" id="subject" name="subject" required>
+                            <option value="">-- Choose Subject --</option>
+                            {% for subj in quiz_data.keys() %}
+                                <option value="{{ subj }}">{{ subj }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="part" class="form-label">📗 Select Part</label>
+                        <select class="form-select" id="part" name="part" required>
+                            <option value="">-- Choose Part --</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="section" class="form-label">📙 Select Section</label>
+                        <select class="form-select" id="section" name="section" required>
+                            <option value="">-- Choose Section --</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">🧠 Start Quiz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ Script to dynamically populate part and section -->
+<script>
+    const quizData = {{ quiz_data | tojson | safe }};
+
+    document.getElementById('subject').addEventListener('change', function () {
+        const subject = this.value;
+        const partSelect = document.getElementById('part');
+        const sectionSelect = document.getElementById('section');
+
+        partSelect.innerHTML = '<option value="">-- Choose Part --</option>';
+        sectionSelect.innerHTML = '<option value="">-- Choose Section --</option>';
+
+        if (quizData[subject]) {
+            for (const part in quizData[subject]) {
+                partSelect.innerHTML += `<option value="${part}">${part}</option>`;
+            }
+        }
+    });
+
+    document.getElementById('part').addEventListener('change', function () {
+        const subject = document.getElementById('subject').value;
+        const part = this.value;
+        const sectionSelect = document.getElementById('section');
+
+        sectionSelect.innerHTML = '<option value="">-- Choose Section --</option>';
+
+        if (quizData[subject] && quizData[subject][part]) {
+            for (const section in quizData[subject][part]) {
+                sectionSelect.innerHTML += `<option value="${section}">${section}</option>`;
+            }
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Welcome to TESTDO{% endblock %}
+
+{% block content %}
+<style>
+    .hero {
+        background: url("https://images.unsplash.com/photo-1555529771-35a38cae84f1?auto=format&fit=crop&w=1400&q=80");
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px;
+        text-align: center;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-top: 5px;
+        color: #f1f1f1;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+
+    .btn-custom {
+        padding: 10px 25px;
+        font-size: 1rem;
+        border-radius: 25px;
+        margin: 10px;
+    }
+
+    .logo-container {
+        text-align: center;
+        margin-top: 20px;
+        animation: bounce 2s infinite;
+    }
+
+    .logo-container img {
+        height: 60px;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 576px) {
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        .tagline {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<!-- 🔰 Logo and Tagline -->
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="TESTDO Logo">
+    <div class="tagline">Practice always makes Perfect</div>
+</div>
+
+<!-- 🧠 Hero Section -->
+<div class="hero mt-4 shadow">
+    <h1>📚 Welcome to TESTDO</h1>
+    <p>Practice and prepare with quizzes built for competitive exams and students</p>
+    <a href="/signup" class="btn btn-primary btn-custom">🚀 Sign Up</a>
+    <a href="/login" class="btn btn-outline-light btn-custom">🔐 Login</a>
+</div>
+
+<!-- 📢 Google AdSense Advertisement -->
+<div class="mt-5 text-center">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7685518573591552"
+        crossorigin="anonymous"></script>
+
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-client="ca-pub-7685518573591552"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+{% endblock %}

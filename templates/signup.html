@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Signup - TESTDO{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <!-- 🔰 Logo & Tagline -->
+        <div class="text-center mb-4">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="TESTDO Logo" class="img-fluid" style="max-height: 100px;">
+            <h5 class="mt-2 text-muted fst-italic">Practice always makes Perfect</h5>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white text-center fw-bold fs-5">
+                📝 Create Your TESTDO Account
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/signup">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">👤 Full Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="preparation" class="form-label">📚 Class / Vacancy Preparation</label>
+                        <input type="text" name="preparation" class="form-control" placeholder="e.g. SSC CGL, Class 12" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">📱 Mobile Number</label>
+                        <input type="text" name="mobile" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">📧 Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="example@test.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">🔒 Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success">✅ Sign Up</button>
+                    </div>
+                </form>
+
+                <p class="text-center mt-3">
+                    Already have an account? <a href="/login">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

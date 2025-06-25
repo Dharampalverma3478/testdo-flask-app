@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="text-center mt-20">
+        <h1 class="text-4xl font-bold mb-6">🎓 Welcome to Quiz Platform</h1>
+
+        <input type="text" id="subjectInput" placeholder="Enter subject (e.g., math)" 
+            class="p-2 rounded text-black" />
+
+        <button onclick="searchQuiz()" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            🔍 Search Quiz
+        </button>
+
+        <div id="quizResults" class="mt-6 text-lg"></div>
+    </div>
+
+    <script>
+        async function searchQuiz() {
+            const subject = document.getElementById("subjectInput").value.trim().toLowerCase();
+            const resultDiv = document.getElementById("quizResults");
+            resultDiv.innerHTML = "🔄 Searching...";
+
+            try {
+                const res = await fetch(`http://127.0.0.1:5000/search?subject=${subject}`);
+                const data = await res.json();
+
+                resultDiv.innerHTML = ""; // Clear old results
+
+                if (data.length === 0) {
+                    resultDiv.innerHTML = `<p class="text-red-500">❌ No quizzes found.</p>`;
+                } else {
+                    data.forEach(quiz => {
+                        const el = document.createElement("div");
+                        el.className = "p-3 bg-blue-100 text-black rounded-md shadow my-2";
+                        el.innerText = quiz;
+                        resultDiv.appendChild(el);
+                    });
+                }
+            } catch (err) {
+                resultDiv.innerHTML = `<p class="text-red-500">⚠️ Server error. Check Flask is running.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

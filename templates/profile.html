@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Profile - TESTDO{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-info text-white text-center fw-bold fs-5">
+                👤 User Profile
+            </div>
+            <div class="card-body p-4 bg-white">
+                {% if user %}
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">📝 Name</label>
+                        <input type="text" name="name" value="{{ user.name }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">📚 Class / Preparation</label>
+                        <input type="text" name="preparation" value="{{ user.preparation }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">📞 Mobile Number</label>
+                        <input type="text" name="mobile" value="{{ user.mobile }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">🖼️ Profile Picture</label>
+                        <input type="file" name="picture" class="form-control">
+                        {% if user.picture %}
+                            <img src="{{ url_for('static', filename='profiles/' ~ user.picture) }}" class="img-thumbnail mt-2" width="150">
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                </form>
+                {% else %}
+                    <p class="text-danger">⚠️ No user data found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

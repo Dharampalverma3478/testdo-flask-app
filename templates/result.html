@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Quiz Result{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card text-center shadow-sm border-0">
+            <div class="card-header bg-primary text-white fw-bold">
+                🎉 Quiz Completed!
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Your Score</h3>
+                <p class="display-4 fw-bold text-success">{{ score }} / {{ total }}</p>
+                <a href="/history" class="btn btn-outline-secondary mt-3">📄 View Your History</a>
+                <a href="/search" class="btn btn-outline-primary mt-2">🔁 Try Another Quiz</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
