@@ -7,23 +7,23 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# 🔒 Session should expire on browser close
+# 🔒 Session settings
 app.config['SESSION_PERMANENT'] = False
-app.permanent_session_lifetime = timedelta(minutes=30)  # Optional: logout after 30 mins of idle
+app.permanent_session_lifetime = timedelta(minutes=30)
 
-# ✅ Load or Create users.json
+# ✅ Load or create users.json
 if os.path.exists("users.json"):
     with open("users.json", "r") as f:
         users = json.load(f)
 else:
     users = {}
 
-# 🏠 Home Route
+# 🏠 Home
 @app.route('/')
 def home():
     return render_template("home.html")
 
-# 📝 Signup Route
+# 📝 Signup
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -48,10 +48,9 @@ def signup():
             json.dump(users, f, indent=4)
 
         return redirect('/login')
-
     return render_template('signup.html')
 
-# 🔐 Login Route
+# 🔐 Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -61,29 +60,26 @@ def login():
         user = users.get(email)
         if user and user['password'] == password:
             session['user'] = email
-            session.permanent = False  # 🔒 Session ends on browser close
             return redirect('/dashboard')
         else:
             return "❌ Invalid email or password."
-
     return render_template('login.html')
 
-# 🚪 Logout Route
+# 🚪 Logout
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect('/login')
 
-# 👤 Dashboard Route
+# 🧭 Dashboard (redirects to search)
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
         return redirect('/search')
-    else:
-        return redirect('/login')
+    return redirect('/login')
 
-# 🔍 Search Page Route
-@app.route('/search', methods=['GET'])
+# 🔍 Search Page
+@app.route('/search')
 def search_page():
     if 'user' not in session:
         return redirect('/login')
@@ -96,7 +92,7 @@ def search_page():
 
     return render_template('search.html', quiz_data=quiz_data)
 
-# 🔍 Search Quiz Submission
+# 🔍 Search Form Submission
 @app.route('/search_quiz', methods=['POST'])
 def search_quiz():
     subject = request.form['subject']
@@ -104,7 +100,7 @@ def search_quiz():
     section = request.form['section']
     return redirect(f"/quiz/{subject}/{part}/{section}")
 
-# 📥 Load Quiz Data
+# 📥 Load and Display Quiz
 @app.route('/quiz/<subject>/<part>/<section>', methods=["GET", "POST"])
 def section_quiz(subject, part, section):
     if 'user' not in session:
@@ -150,7 +146,7 @@ def section_quiz(subject, part, section):
 
     return render_template("quiz.html", quiz=quiz_data, quiz_title=f"{subject} / {part} / {section}", time_limit=10)
 
-# 📄 History Route
+# 📄 History
 @app.route('/history')
 def history():
     if 'user' not in session:
@@ -168,7 +164,7 @@ def history():
 
     return render_template("history.html", results=user_results)
 
-# 📊 Leaderboard Route
+# 📊 Leaderboard
 @app.route('/leaderboard')
 def leaderboard():
     if not os.path.exists("results.json"):
@@ -186,7 +182,7 @@ def leaderboard():
 
     return render_template("leaderboard.html", leaderboard=sorted_leaderboard)
 
-# 👤 Profile Page
+# 👤 Profile
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'user' not in session:
@@ -216,7 +212,7 @@ def profile():
 
     return render_template('profile.html', user=user)
 
-# 🔐 Admin Login Route
+# 🔐 Admin Login
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
@@ -228,7 +224,7 @@ def admin():
             return "❌ Wrong admin password"
     return render_template('admin_login.html')
 
-# ➕ Add Quiz Route
+# ➕ Add Quiz
 @app.route('/admin/add_quiz', methods=['GET', 'POST'])
 def add_quiz():
     if 'admin' not in session:
@@ -263,4 +259,4 @@ def add_quiz():
 
 # 🟢 Run the App
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=10000)
