@@ -1,60 +1,129 @@
-{% extends "base.html" %}
-{% block title %}Take Quiz - TESTDO{% endblock %}
-
+{% extends 'base.html' %}
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-10">
-        <div class="card shadow-sm border-0 mb-4">
-            <div class="card-body text-center">
-                <h3 class="fw-bold mb-3">📝 Take Quiz</h3>
-                <div id="timer" class="alert alert-warning fw-semibold fs-5"></div>
-            </div>
-        </div>
-
-        <form id="quizForm" method="POST">
-            {% for q in quiz %}
-            <div class="card mb-3 shadow-sm border-0">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ loop.index }}. {{ q.question }}</h5>
-
-                    {% set q_index = loop.index0 %}
-                    {% for option in q.options %}
-                    <div class="form-check">
-                        <input class="form-check-input"
-                               type="radio"
-                               name="q{{ q_index }}"
-                               value="{{ option }}"
-                               required
-                               id="q{{ q_index }}_{{ loop.index }}">
-                        <label class="form-check-label" for="q{{ q_index }}_{{ loop.index }}">
-                            {{ option }}
-                        </label>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endfor %}
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-success px-4 py-2 fw-semibold">✅ Submit Quiz</button>
-            </div>
-        </form>
+<div class="container mt-4">
+    <h2 class="text-center">{{ quiz_title }}</h2>
+    <div class="text-end fw-bold mb-3">
+        Score: <span id="live-score">0</span> / {{ quiz|length }}
     </div>
+
+    <form id="quiz-form" method="POST">
+        <div id="question-box"></div>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button type="button" class="btn btn-secondary" id="prev-btn">Previous</button>
+            <button type="button" class="btn btn-primary" id="next-btn">Next</button>
+            <button type="submit" class="btn btn-success d-none" id="submit-btn">Submit</button>
+        </div>
+    </form>
 </div>
 
-<!-- ✅ Timer Script -->
+<!-- 🎵 Audio files -->
+<audio id="correct-sound" src="{{ url_for('static', filename='sounds/correct.mp3') }}"></audio>
+<audio id="wrong-sound" src="{{ url_for('static', filename='sounds/wrong.mp3') }}"></audio>
+
 <script>
-    let timer = 60;  // Change this to increase/decrease time
-    let interval = setInterval(() => {
-        const timerBox = document.getElementById("timer");
-        if (timer <= 0) {
-            clearInterval(interval);
-            timerBox.innerText = "⏱️ Time's up! Submitting...";
-            document.getElementById("quizForm").submit();
+    const quiz = {{ quiz | tojson }};
+    let current = 0;
+    const userAnswers = Array(quiz.length).fill(null);
+    const questionBox = document.getElementById('question-box');
+    const scoreBox = document.getElementById('live-score');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+
+    const correctSound = document.getElementById('correct-sound');
+    const wrongSound = document.getElementById('wrong-sound');
+
+    function showQuestion(index) {
+        const q = quiz[index];
+        questionBox.innerHTML = `
+            <div class="card p-3">
+                <h5>Q${index + 1}. ${q.question}</h5>
+                ${q.options.map((opt, i) => `
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q${index}" id="q${index}o${i}" value="${opt}"
+                            ${userAnswers[index] === opt ? "checked" : ""} onclick="selectAnswer(${index}, '${opt}')">
+                        <label class="form-check-label" id="label-q${index}o${i}" for="q${index}o${i}">
+                            ${opt}
+                        </label>
+                    </div>`).join("")}
+                <div id="explanation-${index}" class="mt-3 text-info fw-medium"></div>
+            </div>
+        `;
+
+        prevBtn.disabled = index === 0;
+        nextBtn.classList.toggle('d-none', index === quiz.length - 1);
+        submitBtn.classList.toggle('d-none', index !== quiz.length - 1);
+    }
+
+    function selectAnswer(index, value) {
+        userAnswers[index] = value;
+        const correct = quiz[index].answer;
+        const explanationText = quiz[index].explanation || "No explanation provided.";
+
+        quiz[index].options.forEach((opt, i) => {
+            const label = document.getElementById(`label-q${index}o${i}`);
+            if (opt === correct) {
+                label.classList.add('text-success', 'fw-bold');
+            }
+            if (opt === value && opt !== correct) {
+                label.classList.add('text-danger', 'fw-bold');
+            }
+        });
+
+        disableOptions(index);
+        updateScore();
+
+        // Show explanation
+        document.getElementById(`explanation-${index}`).textContent = "💡 " + explanationText;
+
+        // Play sound
+        if (value === correct) {
+            correctSound.play();
         } else {
-            timerBox.innerText = "⏳ " + timer + " seconds remaining";
-            timer--;
+            wrongSound.play();
         }
-    }, 1000);
+    }
+
+    function disableOptions(index) {
+        const radios = document.getElementsByName(`q${index}`);
+        radios.forEach(r => r.disabled = true);
+    }
+
+    function updateScore() {
+        let score = 0;
+        for (let i = 0; i < quiz.length; i++) {
+            if (userAnswers[i] === quiz[i].answer) {
+                score++;
+            }
+        }
+        scoreBox.textContent = score;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (current < quiz.length - 1) {
+            current++;
+            showQuestion(current);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (current > 0) {
+            current--;
+            showQuestion(current);
+        }
+    });
+
+    document.getElementById('quiz-form').addEventListener('submit', function (e) {
+        userAnswers.forEach((ans, i) => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = `q${i}`;
+            input.value = ans || '';
+            this.appendChild(input);
+        });
+    });
+
+    showQuestion(current);
 </script>
 {% endblock %}

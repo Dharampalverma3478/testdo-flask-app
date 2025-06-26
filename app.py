@@ -101,7 +101,7 @@ def search_quiz():
     return redirect(f"/quiz/{subject}/{part}/{section}")
 
 # 📥 Load and Display Quiz
-@app.route('/quiz/<subject>/<part>/<section>', methods=["GET", "POST"])
+@app.route('/quiz/<subject>/<part>/<section>', methods=["GET"])
 def section_quiz(subject, part, section):
     if 'user' not in session:
         return redirect('/login')
@@ -114,37 +114,50 @@ def section_quiz(subject, part, section):
 
     quiz_data = quizzes.get(subject, {}).get(part, {}).get(section, [])
 
-    if request.method == "POST":
-        user_answers = []
-        score = 0
+    return render_template("quiz.html", quiz=quiz_data, quiz_title=f"{subject} / {part} / {section}", subject=subject, part=part, section=section)
 
-        for i, q in enumerate(quiz_data):
-            selected = request.form.get(f"q{i}")
-            user_answers.append(selected)
-            if selected == q["answer"]:
-                score += 1
+# ✅ Submit Quiz & Evaluate
+@app.route('/submit_quiz/<subject>/<part>/<section>', methods=['POST'])
+def submit_quiz(subject, part, section):
+    if 'user' not in session:
+        return redirect('/login')
 
-        result = {
-            "user": session['user'],
-            "subject": f"{subject} → {part} → {section}",
-            "score": score,
-            "total": len(quiz_data),
-            "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        }
+    if os.path.exists("quizzes.json"):
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    else:
+        return "❌ No quizzes found."
 
-        if os.path.exists("results.json"):
-            with open("results.json", "r") as f:
-                results = json.load(f)
-        else:
-            results = []
+    quiz_data = quizzes.get(subject, {}).get(part, {}).get(section, [])
 
-        results.append(result)
-        with open("results.json", "w") as f:
-            json.dump(results, f, indent=4)
+    user_answers = []
+    score = 0
 
-        return render_template("result.html", score=score, total=len(quiz_data))
+    for i, q in enumerate(quiz_data):
+        selected = request.form.get(f"q{i}")
+        user_answers.append(selected)
+        if selected == q["answer"]:
+            score += 1
 
-    return render_template("quiz.html", quiz=quiz_data, quiz_title=f"{subject} / {part} / {section}", time_limit=10)
+    result = {
+        "user": session['user'],
+        "subject": f"{subject} → {part} → {section}",
+        "score": score,
+        "total": len(quiz_data),
+        "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+    if os.path.exists("results.json"):
+        with open("results.json", "r") as f:
+            results = json.load(f)
+    else:
+        results = []
+
+    results.append(result)
+    with open("results.json", "w") as f:
+        json.dump(results, f, indent=4)
+
+    return render_template("result.html", score=score, total=len(quiz_data))
 
 # 📄 History
 @app.route('/history')
