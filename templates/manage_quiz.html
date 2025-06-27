@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>🛠 Manage Quizzes</h2>
+    {% for subject, parts in quizzes.items() %}
+        <h4>Subject: {{ subject }}</h4>
+        {% for part, sections in parts.items() %}
+            <h5 class="ms-3">Part: {{ part }}</h5>
+            {% for section, questions in sections.items() %}
+                <h6 class="ms-4">Section: {{ section }}</h6>
+                <ul class="ms-5">
+                    {% for q in questions %}
+                        <li>
+                            <strong>Q:</strong> {{ q.question }}<br>
+                            <strong>Options:</strong> {{ q.options }}<br>
+                            <strong>Answer:</strong> {{ q.answer }}<br>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

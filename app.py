@@ -7,23 +7,24 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# 🔒 Session settings
+# Session Config
 app.config['SESSION_PERMANENT'] = False
 app.permanent_session_lifetime = timedelta(minutes=30)
+app.config['UPLOAD_FOLDER'] = 'static'
 
-# ✅ Load or create users.json
+# Load or create users.json
 if os.path.exists("users.json"):
     with open("users.json", "r") as f:
         users = json.load(f)
 else:
     users = {}
 
-# 🏠 Home
+# Home
 @app.route('/')
 def home():
     return render_template("home.html")
 
-# 📝 Signup
+# Signup
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -50,7 +51,7 @@ def signup():
         return redirect('/login')
     return render_template('signup.html')
 
-# 🔐 Login
+# Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -65,20 +66,20 @@ def login():
             return "❌ Invalid email or password."
     return render_template('login.html')
 
-# 🚪 Logout
+# Logout
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect('/login')
 
-# 🧭 Dashboard (redirects to search)
+# Dashboard
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
         return redirect('/search')
     return redirect('/login')
 
-# 🔍 Search Page
+# Search Page
 @app.route('/search')
 def search_page():
     if 'user' not in session:
@@ -92,7 +93,7 @@ def search_page():
 
     return render_template('search.html', quiz_data=quiz_data)
 
-# 🔍 Search Form Submission
+# Search Submission
 @app.route('/search_quiz', methods=['POST'])
 def search_quiz():
     subject = request.form['subject']
@@ -100,7 +101,7 @@ def search_quiz():
     section = request.form['section']
     return redirect(f"/quiz/{subject}/{part}/{section}")
 
-# 📥 Load and Display Quiz
+# Load Quiz
 @app.route('/quiz/<subject>/<part>/<section>', methods=["GET"])
 def section_quiz(subject, part, section):
     if 'user' not in session:
@@ -114,9 +115,11 @@ def section_quiz(subject, part, section):
 
     quiz_data = quizzes.get(subject, {}).get(part, {}).get(section, [])
 
-    return render_template("quiz.html", quiz=quiz_data, quiz_title=f"{subject} / {part} / {section}", subject=subject, part=part, section=section)
+    return render_template("quiz.html", quiz=quiz_data,
+                           quiz_title=f"{subject} / {part} / {section}",
+                           subject=subject, part=part, section=section)
 
-# ✅ Submit Quiz & Evaluate
+# Submit Quiz
 @app.route('/submit_quiz/<subject>/<part>/<section>', methods=['POST'])
 def submit_quiz(subject, part, section):
     if 'user' not in session:
@@ -129,7 +132,6 @@ def submit_quiz(subject, part, section):
         return "❌ No quizzes found."
 
     quiz_data = quizzes.get(subject, {}).get(part, {}).get(section, [])
-
     user_answers = []
     score = 0
 
@@ -159,7 +161,7 @@ def submit_quiz(subject, part, section):
 
     return render_template("result.html", score=score, total=len(quiz_data))
 
-# 📄 History
+# History
 @app.route('/history')
 def history():
     if 'user' not in session:
@@ -174,10 +176,9 @@ def history():
         all_results = []
 
     user_results = [res for res in all_results if res["user"] == user_email]
-
     return render_template("history.html", results=user_results)
 
-# 📊 Leaderboard
+# Leaderboard
 @app.route('/leaderboard')
 def leaderboard():
     if not os.path.exists("results.json"):
@@ -192,10 +193,9 @@ def leaderboard():
         leaderboard_scores[user] = leaderboard_scores.get(user, 0) + result["score"]
 
     sorted_leaderboard = sorted(leaderboard_scores.items(), key=lambda x: x[1], reverse=True)
-
     return render_template("leaderboard.html", leaderboard=sorted_leaderboard)
 
-# 👤 Profile
+# Profile
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'user' not in session:
@@ -225,7 +225,7 @@ def profile():
 
     return render_template('profile.html', user=user)
 
-# 🔐 Admin Login
+# Admin Login
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
@@ -237,7 +237,7 @@ def admin():
             return "❌ Wrong admin password"
     return render_template('admin_login.html')
 
-# ➕ Add Quiz
+# Add Quiz (Admin)
 @app.route('/admin/add_quiz', methods=['GET', 'POST'])
 def add_quiz():
     if 'admin' not in session:
@@ -270,6 +270,33 @@ def add_quiz():
 
     return render_template("add_quiz.html")
 
-# 🟢 Run the App
+# Admin Upload Logo
+@app.route('/admin/upload-logo', methods=['GET', 'POST'])
+def upload_logo():
+    if 'admin' not in session:
+        return redirect('/admin')
+
+    if request.method == 'POST':
+        logo = request.files['logo']
+        if logo and logo.filename != '':
+            logo.save(os.path.join(app.config['UPLOAD_FOLDER'], 'logo.png'))
+            return redirect('/')
+    return render_template('admin_upload.html')
+
+# Admin Manage Quiz Page
+@app.route('/admin/manage_quiz')
+def manage_quiz():
+    if 'admin' not in session:
+        return redirect('/admin')
+
+    if os.path.exists("quizzes.json"):
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    else:
+        quizzes = {}
+
+    return render_template("manage_quiz.html", quizzes=quizzes)
+
+# Run App
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)

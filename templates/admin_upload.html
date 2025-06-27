@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h3 class="text-center mb-4">Upload New Logo</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="logo" class="form-label">Select Logo Image (PNG):</label>
+            <input type="file" name="logo" class="form-control" accept="image/png" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Logo</button>
+    </form>
+</div>
+{% endblock %}
